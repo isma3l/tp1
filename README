@@ -12,8 +12,14 @@ y se crea la clase "Articulo" que contendra la logica de las actualizaciones de 
 La logica de las actualizaciones de "quality" sera implementada, en otro refactor,
 extendiendo la fucnionalidad de "Articulo".
 
-3er commit: Se aplica el refactor: "Extract Subclass" y "Template method".
+-3er commit: Se aplica el refactor: "Extract Subclass" y "Template method".
 Se crean las clases que implementan el metodo protegido "updateQuality" de la
 clase "Articulo".
 Estas subclases representan a los diferentes productos que puedan haber, de modo que
  polimorficamente un articulo se actualizara de diferentes maneras.
+
+-4to commit: Se agrega una clase llamada "FabricaArticulo", que se encarga de crear los
+diferentes articulos, en esta clase se implementa el patron singleton.
+Se modifican los contructores de "Inventory" para que funcione con "FabricaArticulo".
+
+Se corren los test originales y todos funcionan, sin necesidad de modificar algun test.
