@@ -2,3 +2,18 @@ En este archivo se muestra el mensaje que se agrego en cada commit.
 
 -1er commit: se agrega las clases dadas en la catedra: Item e Inventory
 Ademas de los test unitarios.
+
+*****Se creo una rama llamada RamaRefactor donde se incorporará la nueva funcionalidad.*****
+
+-2do commit: Se da en la  RamaRefactor, donde se hace el primer refactor: "Extract SuperClass"
+Se elimina de la clase "Inventory" la logica del manejo de las actualizaciones de los items
+y se crea la clase "Articulo" que contendra la logica de las actualizaciones de los "sellIn".
+
+La logica de las actualizaciones de "quality" sera implementada, en otro refactor,
+extendiendo la fucnionalidad de "Articulo".
+
+3er commit: Se aplica el refactor: "Extract Subclass" y "Template method".
+Se crean las clases que implementan el metodo protegido "updateQuality" de la
+clase "Articulo".
+Estas subclases representan a los diferentes productos que puedan haber, de modo que
+ polimorficamente un articulo se actualizara de diferentes maneras.
