@@ -1,1 +1,4 @@
-This file was created by IntelliJ IDEA 12.1.4 for binding GitHub repository
+En este archivo se muestra el mensaje que se agrego en cada commit.
+
+-1er commit: se agrega las clases dadas en la catedra: Item e Inventory
+Ademas de los test unitarios.
