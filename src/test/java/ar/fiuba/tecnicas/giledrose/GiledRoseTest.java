@@ -14,7 +14,7 @@ public class GiledRoseTest {
     private Item ageBrie;
     private Item sulfura;
     private Item backStage;
-
+    private Item conjured;
 
     @Before
     public void setUp() {
@@ -24,8 +24,9 @@ public class GiledRoseTest {
         ageBrie = new Item("Aged Brie", 2, 0);
         sulfura = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
         backStage = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20);
+        conjured = new Item("Conjured Mana Cake", 3, 6);
 
-        inventario = new Inventory(new Item[]{dexterity,elixir,ageBrie,sulfura,backStage});
+        inventario = new Inventory(new Item[]{dexterity,elixir,ageBrie,sulfura,backStage, conjured});
     }
 
 
@@ -288,5 +289,45 @@ public class GiledRoseTest {
         assertEquals("La calidad del producto BackStage no debe superar el limite de 50", backStage.getQuality(), limiteCalidad);
     }
 
+    /*
+   Se prueba que la calidad del producto "Conjured" disminuye en 2 unidades
+   despues que se actualiza el inventario.
+   Se utiliza como calidad inicial un valor de 6.
+    */
+    @Test
+    public void calidadDeConjuredDisminuyeTest() {
+        int calidad = 6;
+        conjured.setQuality(calidad);
+
+        inventario.updateQuality();
+        assertEquals("La calidad del producto Conjured debe disminuir en 2 unidades", conjured.getQuality(), calidad - 2);
+    }
+
+    /*
+    Se prueba que el valor de SellIn del producto "Conjured" disminuyen en 1 unidad
+    despues que se actualiza el inventario.
+    Se utiliza un sellIn de 3.
+    */
+    @Test
+    public void sellInDeConjuredDisminuyeTest() {
+        int sellIn = 3;
+        conjured.setSellIn(sellIn);
+
+        inventario.updateQuality();
+        assertEquals("El sellIn del producto Conjured no disminuyo en 1 unidad", conjured.getSellIn(), sellIn - 1);
+
+    }
+
+    /*
+    Se prueba que la calidad del producto "Conjured" nunca disminuye a un valor menor que cero.
+    Se utiliza una calidad de referencia de 0.
+     */
+    @Test
+    public void calidadDeConjuredNoEsNegativaTest() {
+        conjured.setQuality(0);
+
+        inventario.updateQuality();
+        assertEquals("La calidad del producto Conjured nunca es negativa", conjured.getQuality(), 0);
+    }
 
 }

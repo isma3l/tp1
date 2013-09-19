@@ -23,3 +23,6 @@ diferentes articulos, en esta clase se implementa el patron singleton.
 Se modifican los contructores de "Inventory" para que funcione con "FabricaArticulo".
 
 Se corren los test originales y todos funcionan, sin necesidad de modificar algun test.
+
+5to commit: Se agregan test para "Sulfura".
+ Se prueba los nuevos test, todos pasan sin problemas.
